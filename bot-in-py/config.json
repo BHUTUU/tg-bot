@@ -4,10 +4,9 @@
       "program": "tg-bot-py",
       "version": "0.1.0",
       "edition": "2022",
-      "botToken1": "5040519569:AAEXAasz_JcjRv_j-nG5lSVSHT836EwXeCY",
-      "botToken": "2143003155:AAHU19KT_wE7Hp-6VANtH9MNlAfIvwhbo5I",
-      "ownerId": "1359075231",
-      "admin1": "1657069221",
+      "botToken": "",
+      "ownerId": "",
+      "admin1": "",
       "author": "Suman Kumar ~BHUTUU",
       "company": "BHUTUU",
       "github": "https://github.com/BHUTUU/tg-bot"

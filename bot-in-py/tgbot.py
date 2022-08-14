@@ -13,6 +13,15 @@ def parsejson(infile, tofind):
 tgbot=parsejson("./config.json", "tgbot")
 tgurl="https://api.telegram.org/bot"
 BOT_TOKEN=tgbot[0]['botToken']
+if not BOT_TOKEN:
+    print("Add bot token in the config.json file")
+    exit(1)
+if not tgbot[0]['ownerId']:
+    print("Add ownerId in the config.json file")
+    exit(1)
+if not tgbot[0]['admin1']:
+    print("Add any admin id in config.json file or you may add the same ownerId in admin1 field too!")
+    exit(1)
 #CHAT_ID=tgbot[0]['chatId']
 SEND_MESSAGE='/sendMessage'
 GET_UPDATES='/getUpdates'
@@ -177,7 +186,7 @@ while True:
         case "/start":
             sendMessage("Hi! @"+str(fromusr)+" . Status: Running..!", message_id, str(chat))
         case "/id":
-             sendMessage("This chat id is: <code>"+str(chat)+"</code> and your id is: <code>"+str(fromid)+"</code>", message_id, str(chat))
+             sendMessage("This chat's id is: <code>"+str(chat)+"</code> and your chat's id is: <code>"+str(fromid)+"</code>", message_id, str(chat))
         case "/sed":
             if adminVerify(fromid):
                    if not args:
