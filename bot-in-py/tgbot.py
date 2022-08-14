@@ -176,6 +176,8 @@ while True:
             sendMessage("<code>pong!</code>", message_id, str(chat))
         case "/start":
             sendMessage("Hi! @"+str(fromusr)+" . Status: Running..!", message_id, str(chat))
+        case "/id":
+             sendMessage("This chat id is: <code>"+str(chat)+"</code> and your id is: <code>"+str(fromid)+"</code>", message_id, str(chat))
         case "/sed":
             if adminVerify(fromid):
                    if not args:
@@ -227,10 +229,24 @@ while True:
             sendMessage("Just explain your help/need and have patience @"+str(fromusr), message_id, str(chat))
 #<<<-----SEARCH AND REPLACE------>>>#
     if (msg.find('s/', 0, 2) != -1):
-        text1 = msg.split('/')[1]
-        text2 = msg.split('/')[2]
-        try:
-            newMess = message_got.replace(text1, text2)
-            sendMessage(str(newMess), message_id2, str(chat))
-        except:
-            pass
+        if (msg.find('\/') != -1):
+            pref=msg.split('/')[1].removesuffix('\\')
+            oldStr=pref+'/'+msg.split('/')[2]
+            new1=msg.split('/')[3]
+            if(new1.find('\\') != -1):
+                newStr=new1.split('\\')[0]+'/'
+            else:
+                newStr=new1
+            try:
+                newMess=message_got.replace(oldStr, newStr)
+                sendMessage(str(newMess), message_id2, str(chat))
+            except:
+                pass
+        else:
+            text1 = msg.split('/')[1]
+            text2 = msg.split('/')[2]
+            try:
+                newMess = message_got.replace(text1, text2)
+                sendMessage(str(newMess), message_id2, str(chat))
+            except:
+                pass
