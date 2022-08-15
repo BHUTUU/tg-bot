@@ -150,7 +150,10 @@ while True:
         with open("updateid.txt", "a") as fileToUp:
             fileToUp.write(str(upid)+"\n")
             fileToUp.close()
-    msg=result[0]['message']['text']
+    try:
+        msg=result[0]['message']['text']
+    except:
+        continue
     chat=result[0]['message']['chat']['id']
     fromid=result[0]['message']['from']['id']
     fromusr=result[0]['message']['from']['username']
