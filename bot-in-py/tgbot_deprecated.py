@@ -241,15 +241,12 @@ while True:
             sendMessage("Just explain your help/need and have patience @"+str(fromusr), message_id, str(chat))
 #<<<-----SEARCH AND REPLACE------>>>#
     if (msg.find('s/', 0, 2) != -1):
-        if (msg.find('\/') != -1):
-            pref=msg.split('/')[1].removesuffix('\\')
-            oldStr=pref+'/'+msg.split('/')[2]
-            new1=msg.split('/')[3]
-            if(new1.find('\\') != -1):
-                newStr=new1.split('\\')[0]+'/'
-            else:
-                newStr=new1
+        print(msg)
+        oldStr = msg.split("/")[1]
+        newStr=msg.split("/")[2]
+        if(newStr):
             try:
+                print(newStr)
                 newMess=message_got.replace(oldStr, newStr)
                 sendMessage(str(newMess), message_id2, str(chat))
             except:
