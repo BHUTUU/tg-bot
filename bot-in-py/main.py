@@ -6,7 +6,7 @@ def parsejson(infile, tofind):
         figures = json.load(f)
     return figures[tofind]
 #<<<-----------Internal variables----------->>>
-tgbot = parsejson("./config.json", "tgbot")
+tgbot = parsejson("/etc/secrets/config.json", "tgbot")
 BOT_TOKEN = tgbot[0]['botToken']
 BOT_NAME = tgbot[0]['botName']
 OWNER_ID = tgbot[0]['ownerId']
