@@ -10,7 +10,7 @@ import os
 #tgbot = parsejson("/etc/secrets/config.json", "tgbot")
 dotenv_data = os.Environ.get("dotenvdata")
 if dotenv_data:
-    tgbot = json.load(dotenv_data)["tgbot"]
+    tgbot = json.loads(dotenv_data)["tgbot"]
 else:
     print("Missing dotenvdata variables setup in environment variables!")
     exit(1)
