@@ -1,12 +1,19 @@
 import json, re, asyncio, aiohttp, time
 from pathlib import Path
+import os
 #<<<-----------Load config----------->>>
-def parsejson(infile, tofind):
-    with open(infile, "r") as f:
-        figures = json.load(f)
-    return figures[tofind]
+#def parsejson(infile, tofind):
+#    with open(infile, "r") as f:
+#        figures = json.load(f)
+#    return figures[tofind]
 #<<<-----------Internal variables----------->>>
-tgbot = parsejson("/etc/secrets/config.json", "tgbot")
+#tgbot = parsejson("/etc/secrets/config.json", "tgbot")
+dotenv_data = os.Environ.get("dotenvdata")
+if dotenv_data:
+    tgbot = json.load(dotenv_data)["tgbot"]
+else:
+    print("Missing dotenvdata variables setup in environment variables!")
+    exit(1)
 BOT_TOKEN = tgbot[0]['botToken']
 BOT_NAME = tgbot[0]['botName']
 OWNER_ID = tgbot[0]['ownerId']
