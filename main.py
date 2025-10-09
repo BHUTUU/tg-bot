@@ -8,7 +8,7 @@ import os
 #    return figures[tofind]
 #<<<-----------Internal variables----------->>>
 #tgbot = parsejson("/etc/secrets/config.json", "tgbot")
-dotenv_data = os.Environ.get("dotenvdata")
+dotenv_data = os.environ.get("dotenvdata")
 if dotenv_data:
     tgbot = json.loads(dotenv_data)["tgbot"]
 else:
